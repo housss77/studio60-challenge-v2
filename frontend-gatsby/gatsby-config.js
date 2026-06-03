@@ -9,10 +9,10 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Studio60 Challenge V2`,
+    description: `Bilingual Gatsby landing page for the Studio60 Challenge V2 submission.`,
+    author: `Houssam`,
+    siteUrl: `https://studio60-challenge-v2.netlify.app`,
   },
   plugins: [
     `gatsby-plugin-image`,
@@ -28,8 +28,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `Studio60 Challenge V2`,
+        short_name: `Studio60`,
         start_url: `/`,
         background_color: `#663399`,
         // This will impact how browsers show your PWA/website

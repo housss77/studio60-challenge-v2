@@ -2,6 +2,12 @@
 
 Gatsby frontend for the Studio60 Challenge V2 landing page. The site renders a modern bilingual landing page using static JSON data exported from the Laravel/Statamic backend.
 
+Live frontend:
+
+```txt
+https://studio60-challenge-v2.netlify.app
+```
+
 ## Stack
 
 - Gatsby 5
@@ -26,6 +32,8 @@ The Netlify build does not require a live backend API. Content is imported from 
 - `src/data/projects.json`
 
 These files mirror the backend API responses and include bilingual fields such as `title_fr`, `title_en`, `description_fr`, and `description_en`.
+
+Project images are served from `static/assets` and referenced with public `/assets/...` paths.
 
 ## Local Installation
 

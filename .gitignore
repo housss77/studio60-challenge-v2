@@ -1,12 +1,36 @@
-# Backend
+# Dependencies
+node_modules/
+vendor/
 backend-statamic/vendor/
 backend-statamic/node_modules/
-backend-statamic/.env
-
-# Frontend
 frontend-gatsby/node_modules/
+
+# Environment
+.env
+.env.*
+backend-statamic/.env
+backend-statamic/.env.*
+frontend-gatsby/.env
+frontend-gatsby/.env.*
+
+# Gatsby
+.cache/
+public/
 frontend-gatsby/.cache/
 frontend-gatsby/public/
+
+# Laravel
+backend-statamic/storage/logs/
+backend-statamic/bootstrap/cache/*.php
+backend-statamic/users/*.yaml
+!backend-statamic/users/.gitkeep
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
 
 # OS
 .DS_Store

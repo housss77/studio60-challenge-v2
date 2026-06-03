@@ -37,10 +37,6 @@ const getImageUrl = image => {
   }
 
   if (typeof image === "string") {
-    if (image.startsWith("http://127.0.0.1:8000/assets/")) {
-      return image.replace("http://127.0.0.1:8000", "")
-    }
-
     return image
   }
 
