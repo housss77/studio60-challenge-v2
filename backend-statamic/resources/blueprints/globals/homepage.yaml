@@ -1,0 +1,52 @@
+title: Homepage
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: hero_title_fr
+            field:
+              type: text
+              display: 'Hero Title FR'
+          -
+            handle: hero_title_en
+            field:
+              type: text
+              display: 'Hero Title EN'
+          -
+            handle: hero_subtitle_fr
+            field:
+              type: textarea
+              display: 'Hero Subtitle FR'
+          -
+            handle: hero_subtitle_en
+            field:
+              type: textarea
+              display: 'Hero Subtitle EN'
+          -
+            handle: about_text_fr
+            field:
+              type: textarea
+              display: 'About Text FR'
+          -
+            handle: about_text_en
+            field:
+              type: textarea
+              display: 'About Text EN'
+          -
+            handle: contact_text_fr
+            field:
+              type: textarea
+              display: 'Contact Text FR'
+          -
+            handle: contact_text_en
+            field:
+              type: textarea
+              display: 'Contact Text EN'
+          -
+            handle: contact_email
+            field:
+              type: text
+              display: 'Contact Email'

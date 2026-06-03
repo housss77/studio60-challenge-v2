@@ -1,0 +1,45 @@
+title: Service
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: title_fr
+            field:
+              type: text
+              display: 'Title FR'
+          -
+            handle: title_en
+            field:
+              type: text
+              display: 'Title EN'
+          -
+            handle: description_fr
+            field:
+              type: textarea
+              display: 'Description FR'
+          -
+            handle: description_en
+            field:
+              type: textarea
+              display: 'Description EN'
+          -
+            handle: image
+            field:
+              container: assets
+              type: assets
+              display: Image
+          -
+            handle: order
+            field:
+              type: integer
+              display: Order
