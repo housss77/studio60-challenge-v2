@@ -1,0 +1,17 @@
+# Backend
+backend-statamic/vendor/
+backend-statamic/node_modules/
+backend-statamic/.env
+
+# Frontend
+frontend-gatsby/node_modules/
+frontend-gatsby/.cache/
+frontend-gatsby/public/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
