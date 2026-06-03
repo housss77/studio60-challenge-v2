@@ -1,0 +1,7 @@
+import * as React from "react"
+
+import HomePage from "../components/HomePage"
+
+export default function FrenchPage() {
+  return <HomePage language="fr" />
+}
