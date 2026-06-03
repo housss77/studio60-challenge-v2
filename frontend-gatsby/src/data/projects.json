@@ -1,0 +1,35 @@
+[
+  {
+    "title": "Corporate Website",
+    "title_fr": "Site Corporate",
+    "title_en": "Corporate Website",
+    "description_fr": "Plateforme institutionnelle bilingue fonctionelle.",
+    "description_en": "Bilingual institutional platform.",
+    "technologies": "Laravel, Statamic, Gatsby",
+    "project_url": "https://example.com",
+    "image": null,
+    "order": 1
+  },
+  {
+    "title": "Plateforme SaaS",
+    "title_fr": "Plateforme SaaS : CUHK Marketplace",
+    "title_en": "Plateforme SaaS : CUHK Marketplace",
+    "description_fr": "Conception et développement d’une plateforme SaaS multi-tenant centralisant l’achat et la vente d’articles d’occasion pour la communauté étudiante. Le système permet une gestion complète du cycle de vie des annonces, avec la possibilité de cibler à l’échelle mondiale ou par établissement spécifique. Elle intègre des fonctionnalités avancées telles que la messagerie en temps réel via WebSockets, un système de notifications, une recherche intelligente (recherche approximative) et un tableau de bord d’analyse des prix afin d’optimiser la logistique entre les campus.",
+    "description_en": "Conception et développement d’une plateforme SaaS multi-tenant centralisant l’achat et la vente d’articles d’occasion pour la communauté étudiante. Le système permet une gestion complète du cycle de vie des annonces, avec la possibilité de cibler à l’échelle mondiale ou par établissement spécifique. Elle intègre des fonctionnalités avancées telles que la messagerie en temps réel via WebSockets, un système de notifications, une recherche intelligente (recherche approximative) et un tableau de bord d’analyse des prix afin d’optimiser la logistique entre les campus.",
+    "technologies": "Ruby on Rails 7, PostgreSQL, WebSockets, RSpec, Cucumber, Heroku",
+    "project_url": "https://cuhk-marketplace-group-21-217132cb7477.herokuapp.com/",
+    "image": "http://127.0.0.1:8000/assets/capture-decran-2025-06-27-131752.png",
+    "order": 2
+  },
+  {
+    "title": "Plateforme logistique",
+    "title_fr": "Plateforme logistique ReRoute",
+    "title_en": "ReRoute Logistics Platform",
+    "description_fr": "Conception et développement d’une plateforme d’optimisation logistique. Intégration d’outils de science des données spatiales pour le calcul d’itinéraires et la gestion des flux en temps réel. Création d’une architecture backend haute performance capable de traiter des requêtes de données complexes.",
+    "description_en": "Design and development of a logistics optimization platform. Integration of spatial data science tools for route calculation and real-time flow management. Creation of a high-performance backend architecture capable of handling complex data queries.",
+    "technologies": "Python, Streamlit, Scikit-learn, Google OR-Tools, OSRM API, Pandas, Folium",
+    "project_url": "https://reroute-hk.streamlit.app/",
+    "image": "http://127.0.0.1:8000/assets/reroutehk.png",
+    "order": 3
+  }
+]

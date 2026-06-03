@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Web Development",
+    "title_fr": "Développement Web",
+    "title_en": "Web Development",
+    "description_fr": "Création de sites web modernes, rapides et évolutifs.",
+    "description_en": "Modern, fast and scalable website development.",
+    "image": null,
+    "order": 1
+  },
+  {
+    "title": "UI UX Design",
+    "title_fr": "Design UI/UX",
+    "title_en": "UI/UX Design",
+    "description_fr": "Conception d'interfaces intuitives et élégantes.",
+    "description_en": "Design of intuitive and elegant user interfaces.",
+    "image": null,
+    "order": 2
+  },
+  {
+    "title": "Technical Optimization",
+    "title_fr": "Optimisation Technique",
+    "title_en": "Technical Optimization",
+    "description_fr": "Amélioration des performances, SEO et sécurité.",
+    "description_en": "Performance, SEO and security improvements.",
+    "image": null,
+    "order": 3
+  }
+]

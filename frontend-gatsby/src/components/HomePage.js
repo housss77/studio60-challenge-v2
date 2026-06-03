@@ -1,7 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { useEffect, useState } from "react"
 
+import homepage from "../data/homepage.json"
+import projects from "../data/projects.json"
+import services from "../data/services.json"
 import * as styles from "../pages/index.module.css"
 
 const labels = {
@@ -12,8 +14,6 @@ const labels = {
     contact: "Contact",
     contactButton: "Contact us",
     projectsButton: "View projects",
-    loading: "Loading...",
-    loadError: "Some content could not be loaded. Please try again later.",
     noProjects: "Projects will be available soon.",
     noServices: "Services will be available soon.",
     technologies: "Technologies",
@@ -25,9 +25,6 @@ const labels = {
     contact: "Contact",
     contactButton: "Contactez-nous",
     projectsButton: "Voir les projets",
-    loading: "Chargement...",
-    loadError:
-      "Certains contenus n'ont pas pu etre charges. Veuillez reessayer plus tard.",
     noProjects: "Les projets seront bientot disponibles.",
     noServices: "Les services seront bientot disponibles.",
     technologies: "Technologies",
@@ -40,7 +37,11 @@ const getImageUrl = image => {
   }
 
   if (typeof image === "string") {
-    return image.startsWith("/") ? `http://127.0.0.1:8000${image}` : image
+    if (image.startsWith("http://127.0.0.1:8000/assets/")) {
+      return image.replace("http://127.0.0.1:8000", "")
+    }
+
+    return image
   }
 
   if (Array.isArray(image)) {
@@ -51,54 +52,8 @@ const getImageUrl = image => {
 }
 
 export default function HomePage({ language }) {
-  const [homepage, setHomepage] = useState(null)
-  const [services, setServices] = useState([])
-  const [projects, setProjects] = useState([])
-  const [loading, setLoading] = useState({
-    homepage: true,
-    services: true,
-    projects: true,
-  })
-  const [apiError, setApiError] = useState({
-    homepage: false,
-    services: false,
-    projects: false,
-  })
-
   const text = labels[language]
   const field = (item, name) => item?.[`${name}_${language}`] || ""
-
-  useEffect(() => {
-    const fetchData = (key, url, onSuccess) => {
-      fetch(url)
-        .then(res => {
-          if (!res.ok) {
-            throw new Error(`Request failed with status ${res.status}`)
-          }
-
-          return res.json()
-        })
-        .then(data => {
-          onSuccess(data)
-          setApiError(current => ({ ...current, [key]: false }))
-        })
-        .catch(err => {
-          console.error(`Error loading ${key}:`, err)
-          setApiError(current => ({ ...current, [key]: true }))
-        })
-        .finally(() => {
-          setLoading(current => ({ ...current, [key]: false }))
-        })
-    }
-
-    fetchData("homepage", "http://127.0.0.1:8000/api/homepage", setHomepage)
-    fetchData("services", "http://127.0.0.1:8000/api/services", data =>
-      setServices(Array.isArray(data) ? data : [])
-    )
-    fetchData("projects", "http://127.0.0.1:8000/api/projects", data =>
-      setProjects(Array.isArray(data) ? data : [])
-    )
-  }, [])
 
   return (
     <main className={styles.page}>
@@ -133,16 +88,9 @@ export default function HomePage({ language }) {
       <section className={styles.hero} id="hero">
         <div className={styles.heroContent}>
           <p className={styles.eyebrow}>Studio60 Challenge V2</p>
-          <h1>
-            {loading.homepage
-              ? text.loading
-              : field(homepage, "hero_title") || "Studio60 Challenge V2"}
-          </h1>
-          {apiError.homepage && (
-            <p className={styles.statusText}>{text.loadError}</p>
-          )}
+          <h1>{field(homepage, "hero_title") || "Studio60 Challenge V2"}</h1>
           <p className={styles.heroSubtitle}>
-            {homepage ? field(homepage, "hero_subtitle") : ""}
+            {field(homepage, "hero_subtitle")}
           </p>
           <div className={styles.heroActions}>
             <a className={styles.primaryButton} href="#contact">
@@ -175,9 +123,7 @@ export default function HomePage({ language }) {
           <p className={styles.eyebrow}>{text.about}</p>
           <h2>{text.about}</h2>
         </div>
-        <p className={styles.aboutText}>
-          {loading.homepage ? text.loading : field(homepage, "about_text")}
-        </p>
+        <p className={styles.aboutText}>{field(homepage, "about_text")}</p>
       </section>
 
       <section className={styles.section} id="services">
@@ -186,13 +132,7 @@ export default function HomePage({ language }) {
           <h2>{text.services}</h2>
         </div>
 
-        {loading.services && (
-          <p className={styles.statusText}>{text.loading}</p>
-        )}
-        {apiError.services && (
-          <p className={styles.statusText}>{text.loadError}</p>
-        )}
-        {!loading.services && !apiError.services && services.length === 0 && (
+        {services.length === 0 && (
           <p className={styles.statusText}>{text.noServices}</p>
         )}
 
@@ -219,13 +159,7 @@ export default function HomePage({ language }) {
           <h2>{text.projects}</h2>
         </div>
 
-        {loading.projects && (
-          <p className={styles.statusText}>{text.loading}</p>
-        )}
-        {apiError.projects && (
-          <p className={styles.statusText}>{text.loadError}</p>
-        )}
-        {!loading.projects && !apiError.projects && projects.length === 0 && (
+        {projects.length === 0 && (
           <p className={styles.statusText}>{text.noProjects}</p>
         )}
 
@@ -265,9 +199,9 @@ export default function HomePage({ language }) {
         <div>
           <p className={styles.eyebrow}>{text.contact}</p>
           <h2>{text.contact}</h2>
-          <p>{homepage ? field(homepage, "contact_text") : ""}</p>
+          <p>{field(homepage, "contact_text")}</p>
         </div>
-        {homepage?.contact_email && (
+        {homepage.contact_email && (
           <a
             className={styles.primaryButton}
             href={`mailto:${homepage.contact_email}`}

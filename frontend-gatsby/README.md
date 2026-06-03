@@ -1,6 +1,6 @@
 # Studio60 Challenge V2 - Frontend
 
-Gatsby frontend for the Studio60 Challenge V2 landing page. The site renders a modern bilingual landing page and consumes content from the Laravel/Statamic backend API.
+Gatsby frontend for the Studio60 Challenge V2 landing page. The site renders a modern bilingual landing page using static JSON data exported from the Laravel/Statamic backend.
 
 ## Stack
 
@@ -17,19 +17,15 @@ Gatsby frontend for the Studio60 Challenge V2 landing page. The site renders a m
 
 The EN/FR controls are real Gatsby links, so users can switch between language routes directly.
 
-## API Dependencies
+## Static Data
 
-The frontend fetches content from the backend running at `http://127.0.0.1:8000`.
+The Netlify build does not require a live backend API. Content is imported from local JSON files:
 
-Required endpoints:
+- `src/data/homepage.json`
+- `src/data/services.json`
+- `src/data/projects.json`
 
-```txt
-http://127.0.0.1:8000/api/homepage
-http://127.0.0.1:8000/api/services
-http://127.0.0.1:8000/api/projects
-```
-
-The frontend expects bilingual fields such as `title_fr`, `title_en`, `description_fr`, and `description_en`.
+These files mirror the backend API responses and include bilingual fields such as `title_fr`, `title_en`, `description_fr`, and `description_en`.
 
 ## Local Installation
 
@@ -77,13 +73,7 @@ npm run serve -- -p 8001
 
 ## Environment and Configuration Notes
 
-The API base URL is currently hardcoded in `src/components/HomePage.js` as:
-
-```txt
-http://127.0.0.1:8000
-```
-
-For production deployment, update this value or move it to environment configuration so the frontend points to the deployed backend.
+No runtime API environment variable is required for the current static submission. To refresh content, export new data from the backend endpoints and update the JSON files in `src/data`.
 
 ## Features Implemented
 
@@ -95,15 +85,14 @@ For production deployment, update this value or move it to environment configura
 - Services and projects card grids
 - Project links opening in a new tab with `rel="noreferrer"`
 - Guarded image rendering for empty/null images
-- Loading, empty, and API error states
+- Static project assets served from `static/assets`
 - Contact section with mail link
 
 ## Deployment Notes
 
 - Run `npm run build` before deployment.
 - Deploy the generated `public` directory or connect Gatsby to a compatible hosting platform.
-- Ensure the deployed backend API allows requests from the frontend domain.
-- Confirm the production API URL is configured before publishing.
+- No backend server is required at runtime for the current static version.
 
 ## Security
 
